@@ -106,5 +106,5 @@ My pipeline consisted of a number of steps described below:
 
 5. Then the Hough Transform was used to find lines in the image containing on the region of interest. The values used in the Hough transform were tweaked until only lane lines in the region were marked as follows
 
-![Hough before transform](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_before_average.png) Hough transform before averaging of lines
+![Hough before transform](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_before_average.png) Sample hough transform before averaging of lines
 
