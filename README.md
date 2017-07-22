@@ -76,7 +76,7 @@ A browser window will appear showing the contents of the current directory.  Cli
 
 ### Reflection
 
-#### Pipeline Overview
+#### Pipeline - How it works?
 
 My pipeline consisted of a number of steps described below:
 
@@ -84,10 +84,27 @@ My pipeline consisted of a number of steps described below:
 
 ` cv2.cvtColor(img, cv2.COLOR_RGB2GRAY) ` where img is the image.
 
-2. Applied Gaussian Smoothing to the image using the OpenCV function: 
+![Grayscale image](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_gray.png)
 
-` cv2.GaussianBlur(img, (kernel_size, kernel_size), 0) ` After a number of tweaks an appropriate kernel size of 5 produced the most suitable results. 
+2. Applied Gaussian Smoothing to the image using OpenCV as follows
 
-The kernel size affects the smoothing over an area. A larger kernel_size implies averaging, or smoothing, over a larger area.
+` cv2.GaussianBlur(img, (kernel_size, kernel_size), 0) ` After a number of tweaks an appropriate kernel size of 5 produced the most suitable results. The kernel size affects the smoothing over an area. A larger kernel_size implies averaging, or smoothing, over a larger area.
 
-3. Applied Canny Edge detection with a low threshold of 50 and a high threshold of 150. 
+![Gaussian Smoothing](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_smoothed.png)
+
+3. Applied Canny Edge detection with a low threshold of 50 and a high threshold of 150 using OpenCV as follows
+
+` cv2.Canny(img, low_threshold, high_threshold)` 
+
+![Canny Edge Detection](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_canny_edge.png)
+
+4. Then the image was masked to produce only the region in the image that lane lines would need to be extracted from. A few bounds for the region were tried until it produces the following suitable region of interest
+
+![Region after Canny](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_region_canny.png) After Canny Edge detection
+
+![Image Region](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_region_normal.png) Region of interest on the main image
+
+5. Then the Hough Transform was used to find lines in the image containing on the region of interest. The values used in the Hough transform were tweaked until only lane lines in the region were marked as follows
+
+![Hough before transform](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_before_average.png) Hough transform before averaging of lines
+
