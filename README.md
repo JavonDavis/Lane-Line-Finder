@@ -126,6 +126,8 @@ My pipeline consisted of a number of steps described below:
 
 * Another shortcoming of my pipeline is that it will definitely fall short on steep (up or down) roads because the region of interest mask is assumed from the center of the image.
 
+* Since the algorithm is "trained" on a very specific road and light conditions when these conditions change we can expect that the algorithm performance will deteriorate.
+
 ### Improvements
 
 * Research shows that to handle curved lines better we'll need to use perspective transformation and also poly fitting lane lines rather than fitting to straight lines.
