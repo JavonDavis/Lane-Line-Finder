@@ -11,6 +11,8 @@ In this project I wrote a Python project to detect lane lines in images using Py
 * Make a pipeline that finds lane lines on the road
 * Reflect on your work in a written report
 
+There are two sections to this README, the Setup instructions and the Reflection of the project
+
 ### Pipeline setup and run
 
 **Step 1:** Getting setup with Python
@@ -106,5 +108,26 @@ My pipeline consisted of a number of steps described below:
 
 5. Then the Hough Transform was used to find lines in the image containing on the region of interest. The values used in the Hough transform were tweaked until only lane lines in the region were marked as follows
 
-![Hough before transform](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_before_average.png) Sample hough transform before averaging of lines
+![Hough before average](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_before_average.png) Sample hough transform before averaging of lines
 
+![Hough Final before average](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_before_average.png) Sample hough transform on full image before averaging of lines
+
+6. The Hough Transform was then modified to now produce 2 solid lines. The slope of the lines were then used to decide which lines were a part of the left line and the right line. These were then averaged and used to produce start and end points of the left and right lines. See results:
+
+![Hough after average](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_after_average.png) Sample hough transform after averaging of lines
+
+7. Finally the Hough transformed image was placed on the 3 color image to produce the final 
+
+![Final](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_final.png) Sample final image
+
+### Shortcomings
+
+* It only detects the straight lane lines. My pipeline at the moment falls short in handling curved lanes well and as such falls short on the challenge video. Currently behind on submission but plan to improve this asap.
+
+* Another shortcoming of my pipeline is that it will definitely fall short on steep (up or down) roads because the region of interest mask is assumed from the center of the image.
+
+### Improvements
+
+* Research shows that to handle curved lines better we'll need to use perspective transformation and also poly fitting lane lines rather than fitting to straight lines.
+
+* Also for steep roads, an approach could be to first detect the horizontal line (between the sky and the earth) so that we can tell up to where the lines should extend.
