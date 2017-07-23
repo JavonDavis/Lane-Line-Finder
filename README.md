@@ -112,7 +112,7 @@ My pipeline consisted of a number of steps described below:
 
 ![Hough Final before average](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_before_average.png) Sample hough transform on full image before averaging of lines
 
-6. The Hough Transform was then modified to now produce 2 solid lines. The slope of the lines were then used to decide which lines were a part of the left line and the right line. These were then averaged and used to produce start and end points of the left and right lines. See results:
+6. The Hough Transform was then modified to now produce 2 solid lines. The slope of the lines were used to decide which lines were a part of the left line and the right line and then averaged and used to produce start and end points of the left and right lines. See results:
 
 ![Hough after average](https://raw.githubusercontent.com/JavonDavis/Lane-Line-Finder/master/test_images/sample_hough_after_average.png) Sample hough transform after averaging of lines
 
