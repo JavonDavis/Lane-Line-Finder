@@ -10,7 +10,7 @@ click==6.7
 cloudpickle==0.3.1
 cryptography==1.9
 cycler==0.10.0
-dask==0.15.1
+dask==2021.10.0
 decorator==4.0.11
 distributed==1.18.0
 entrypoints==0.2.3
