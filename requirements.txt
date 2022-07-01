@@ -38,7 +38,7 @@ Keras==1.2.1
 locket==0.2.0
 MarkupSafe==1.0
 matplotlib==2.0.2
-mistune==0.7.4
+mistune==0.8.1
 moviepy==0.2.3.2
 msgpack-python==0.4.8
 nbconvert==5.2.1
